@@ -1,0 +1,30 @@
+#sqlInputDiv{
+    clear: both;
+    margin-top: 30px;
+
+}
+#sqlInputDiv textarea[name='sql']{
+    width: 1024px;
+    height: 50px;
+}
+#SqlDataDiv{
+    /*border: 1px solid blueviolet;*/
+    width: 1024px;
+    height: 700px;
+    margin-top: 10px;
+    overflow: auto;
+
+}
+#SqlDataDiv table  {
+    border-collapse:collapse;
+
+
+}
+td{
+    text-align: center;
+    border: 1px solid #555555;
+    width: auto;
+    font-size: 13px;
+    line-height: 1.231;
+
+}

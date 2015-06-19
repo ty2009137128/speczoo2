@@ -1,0 +1,65 @@
+#t_tableInfoDiv{
+   /* border: 1px solid blueviolet;*/
+    height: 40px;
+    margin-left: 10px;
+}
+#showDiv div{
+    float: left;
+}
+
+#f_conditionDiv{
+   /* border: 1px solid #212121;*/
+    width: 298px;
+    height: auto;
+}
+#f_conditionDiv div{
+    float: left;
+   /* border-right: 5px solid #0099FF;*/
+    margin-left: 10px;
+    margin-top: 3px;
+    border: 1px solid #992211;
+}
+.deleteCondition:hover{
+    background: blue;
+    cursor: pointer;
+}
+
+/*
+#dataShowDiv{
+    position: absolute;
+    left: 310px;
+    border: 1px solid red;
+    overflow: auto;
+
+}
+#dataShowDiv table{
+    border-collapse:collapse;
+}
+#dataShowDiv table thead tr td ,#dataShowDiv table tbody tr td{
+    border: 1px solid black;
+    text-align: center;
+}*/
+#tableShowDiv{
+    margin-left: 10px;
+/*    border: 1px solid red;*/
+    overflow: auto;
+    width: 700px;
+    height: 400px;
+
+}
+#tableShowDiv table{
+    clear: both;
+    border-collapse:collapse;
+    /*width: 100%;*/
+}
+#tableShowDiv table thead tr td,#tableShowDiv table tbody tr td{
+    clear: both;
+  /*  background: #555555;*/
+    margin-left: 100px;
+    border: 1px solid black;
+    padding: 7px 30px;
+    text-align: center;
+    font-size: 13px;
+    line-height: 1.231;
+}
+

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<decorators defaultdir="/WEB-INF/decorators">
+    <excludes>
+        <pattern>/user/login</pattern>
+    </excludes>
+
+    <decorator name="default" page="default.jsp">
+        <!--<pattern>/**</pattern>-->
+        <!--<pattern>/file*</pattern>-->
+        <!--<pattern>/fits*</pattern>-->
+        <!--<pattern>/group*</pattern>-->
+        <!--<pattern>/home*</pattern>-->
+        <!--<pattern>/mydb*</pattern>-->
+        <!--<pattern>/query*</pattern>-->
+        <!--<pattern>/role*</pattern>-->
+        <!--<pattern>/sql*</pattern>-->
+        <!--<pattern>/user*</pattern>-->
+    </decorator>
+</decorators>

@@ -1,0 +1,109 @@
+#mydbDiv {
+    border: 1px solid #red;
+    width: 300px;
+    height: auto;
+    background-color: #B6FF94;
+}
+
+#mydbDiv #uploadDiv {
+    padding-top: 20px;
+    margin-top: 30px;
+}
+
+#mydbDiv #uploadDiv input[name='tableName'] {
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+#mydbDiv #uploadDiv span#tn {
+    background-color: #39d0db;
+}
+
+#file_upload_queue {
+    background-color: #99ccff;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+    height: auto;
+    margin-bottom: 10px;
+    overflow: auto;
+    padding: 5px 10px;
+    width: 280px;
+
+}
+
+/*----------------*/
+
+#mydbDiv #mydbInfo {
+    margin-top: 10px;
+    height: 360px;
+    overflow: auto;
+}
+
+#mydbDiv #mydbInfo table {
+    width: 300px;
+    border-spacing: 0px;
+}
+
+#mydbDiv #mydbInfo table tr td {
+    border: 1px solid black;
+    text-align: center;
+    background-color: #B0FFEB;
+    padding: 5px 0px;
+}
+
+#mydbDiv #mydbInfo table tfoot tr td {
+    text-align: right;
+}
+
+#mydbDiv #mydbInfo table a {
+    text-decoration: none;
+    background-color: #0efc19;
+}
+
+#mydbDiv #mydbInfo table a:link, #mydbDiv #mydbInfo table a:visited {
+    padding: 3px 5px;
+    border: 1px solid #EDFFF3;
+    text-decoration: none;
+    color: #333;
+}
+
+#mydbDiv #mydbInfo table a:hover {
+    background: #E5ECFF;
+    color: #fff;
+}
+
+/*************************************/
+
+
+/*******************************/
+#downLoadDiv a span {
+    background-color: red;
+    color: white;
+    padding: 10px;
+    left: 627px;
+    position: relative;
+    top: auto;
+}
+
+#downLoadDiv a {
+    text-decoration: none;
+}
+
+#downLoadDiv {
+    margin-top: 10px;
+}
+
+#downLoadDiv span:HOVER {
+    background-color: #14ff18;
+    cursor: pointer;
+}
+
+/***************************************/
+
+.trbackground {
+    background-color: #eee;
+}
+
+#errorDiv, .error, .errorDiv {
+    background-color: red;
+}

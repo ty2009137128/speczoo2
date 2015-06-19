@@ -1,0 +1,210 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background: #F3F3F3;
+}
+
+/*----------------------------------------*/
+#top #loginUserInfo {
+    /*position: relative;
+    right: 100*/
+    float: right;
+
+}
+
+/*------------------------------------------*/
+#loginDiv {
+    background: url("../image/login1.jpg") no-repeat;
+    position: absolute;
+    width: 500px;
+    height: 291px;
+    top: 110px;
+    left: 50%;
+    margin-left: -240px;
+}
+
+#loginTable {
+    position: relative;
+    top: 83px;
+    left: 108px;
+    padding: 6px;
+    width: 343px;
+    height: 158px;
+    background: url("../image/login_bg.jpg");
+}
+
+#loginTable td {
+    position: relative;
+    padding: 6px;
+}
+
+#container {
+    position: absolute;
+    left: 50%;
+    margin-left: -480px;
+    width: 1024px;
+}
+
+#top {
+    background: url("../image/top.jpg") no-repeat;
+    width: 1024px;
+    height: 110px;
+    margin-left: 14%;
+}
+
+#top_right {
+
+}
+
+.detail-header{
+    margin-bottom: 15px;
+}
+
+#nav_list {
+    width: 1024px;
+    height: auto;
+    margin-left: 14%;
+}
+
+#content #nav_list ul {
+    list-style: none;
+
+}
+
+#content #nav_list ul li {
+    float: left;
+    background-color: #EFEFEF;
+}
+
+#content #nav_list ul li span {
+    font-weight: bold;
+    font-family: Arial;
+    font-color: #91C7F3;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #ffffff;
+    text-align: center;
+    display: -moz-inline-box;
+    display: inline-block;
+    width: 110px;
+}
+
+#content #nav_list ul li span:hover {
+    background-color: #0aff89;
+    cursor: pointer;
+}
+
+#content #nav_list ul li a span:link, #content #nav_list ul li a span:visited {
+    font-size: 12px;
+    color: #fff;
+    text-decoration: none;
+}
+
+#search-service-div {
+    /*  background-color: #96b5fc;*/
+    /* border: 1px solid red;*/
+    width: 1024px;
+    position: relative;
+    top: 23px;
+}
+
+span.error {
+    color: red;
+
+}
+
+a.pager_link:link, a.pager_link:visited {
+    padding: 3px 5px;
+    border: 1px solid #699;
+    text-decoration: none;
+    color: #333;
+}
+
+a.pager_link:hover {
+    background: #921;
+    color: #fff;
+}
+
+/*----------------------------------*/
+
+/*--------------------------*/
+
+.uploadLink span {
+    background-color: red;
+    position: absolute;
+    top: 20px;
+    left: auto;
+    color: white;
+    padding: 15px;
+
+}
+
+.uploadLink, .sqllink {
+    text-decoration: none;
+}
+
+.uploadLink span:HOVER, .sqllink span:HOVER {
+    background-color: #14ff18;
+}
+
+/*---------------------*/
+
+#filedDiv {
+    float: left;
+    height: auto;
+    background-color: #FAFFF5;
+    margin-top: 10px;
+}
+
+#filedDiv table {
+    width: auto;
+    border-spacing: 0px 0px;
+}
+
+#filedDiv table tr td {
+    border: 1px solid #F3F3F3;
+    text-align: center;
+    height: 24px;
+}
+
+#filedDiv table thead tr td {
+    text-align: left;
+}
+
+#submitDiv {
+    float: left;
+    padding: 20px;
+}
+
+#submitDiv input {
+    margin: 15px;
+}
+
+/****************************************************/
+#DataDiv {
+    /*background-color: #665cb2;*/
+    width: auto;
+    overflow: auto;
+    clear: both;
+
+}
+
+#DataDiv table {
+    border-spacing: 0px;
+    width: auto;
+    height: auto;
+    background-color: #DBFAFF;
+}
+
+#DataDiv table tr td {
+    border: 1px solid black;
+    text-align: center;
+
+}
+
+#DataDiv table tfoot tr td {
+    text-align: right;
+
+}
