@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.model.OmlElement">
+
+
+    <sql id="field">record_Id,ra,fithas.dec,sn_u</sql>
+
+    <select id="selectList" resultType="com.graduation.model.OmlElement" parameterType="java.util.HashMap">
+        select record_Id as recordId,ra,fithas.dec,sn_u as snu from fithas
+        where 1=1
+        <if test="ra !=null">
+            and ra = #{ra}
+        </if>
+        <if test="dec != null">
+            and fithas.dec=#{dec}
+        </if>
+        <if test="snu != null">
+            and sn_u=#{snu}
+        </if>
+    </select>
+
+    <select id="count" resultType="long" parameterType="java.util.HashMap">
+        select count(*) from fithas where 1=1
+        <if test="ra !=null">
+            and ra = #{ra}
+        </if>
+        <if test="dec != null">
+            and fithas.dec=#{dec}
+        </if>
+        <if test="snu != null">
+            and sn_u=#{snu}
+        </if>
+    </select>
+
+    <insert id="insert" parameterType="OmlElement">
+        <selectKey keyProperty="recordId" resultType="java.lang.Long" order="BEFORE">
+            select max(record_Id)+1 from fithas
+        </selectKey>
+        insert into fithas(record_Id,ra,fithas.dec,sn_u)
+        values(#{recordId},#{ra},#{dec},#{snu})
+    </insert>
+
+    <select id="directSql" parameterType="java.util.HashMap" resultType="java.lang.Object">
+        ${sql}
+    </select>
+
+    <select id="selectMap" resultType="java.util.Map">
+        select record_Id as recordId,ra,fithas.dec,sn_u as snu from fithas
+        where 1=1
+        <if test="ra !=null">
+            and ra = #{ra}
+        </if>
+        <if test="dec != null">
+            and fithas.dec=#{dec}
+        </if>
+        <if test="snu != null">
+            and sn_u=#{snu}
+        </if>
+    </select>
+</mapper>
+

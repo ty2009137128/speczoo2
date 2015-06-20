@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="omlElementDao" class="com.graduation.dao.impl.OmlElementDao">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+    </bean>
+
+    <bean id="omlElementService" class="com.graduation.service.impl.OmlElementService">
+        <property name="omlElementDao" ref="omlElementDao"></property>
+    </bean>
+    <import resource="classpath:cxf-applicationContext.xml"/>
+
+    <bean id="spectroscopicDao" class="com.graduation.dao.impl.SpectroscopicDao">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+    </bean>
+    <bean id="spectroscopicService" class="com.graduation.service.impl.SpectroscopicService">
+        <property name="spectroscopicDao" ref="spectroscopicDao"></property>
+    </bean>
+
+    <bean id="userDao" class="com.graduation.dao.impl.UserDao">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+    </bean>
+    <bean id="userService" class="com.graduation.service.impl.UserService">
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+
+    <bean id="mydbDao" class="com.graduation.dao.impl.MydbDao">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+    </bean>
+    <bean id="mydbService" class="com.graduation.service.impl.MydbService">
+        <property name="mydbDao" ref="mydbDao"></property>
+    </bean>
+    
+    <bean id="spectrumDao" class="com.graduation.dao.impl.SpectrumDao">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+    </bean>
+    <bean id="spectrumService" class="com.graduation.service.impl.SpectrumService">
+        <property name="spectrumDao" ref="spectrumDao"></property>
+    </bean>
+
+    <bean id="roleDao" class="com.graduation.dao.impl.RoleDao">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+    </bean>
+    <bean id="roleService" class="com.graduation.service.impl.RoleService">
+        <property name="roleDao" ref="roleDao"></property>
+    </bean>
+
+    <bean id="groupDao" class="com.graduation.dao.impl.GroupDao">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+    </bean>
+    <bean id="groupService" class="com.graduation.service.impl.GroupService">
+        <property name="groupDao" ref="groupDao"></property>
+    </bean>
+
+
+    <bean id="sqlQueryDao" class="com.graduation.dao.impl.SqlQueryDao">
+        <property name="sqlSessionTemplate" ref="sqlSessionTemplate"></property>
+    </bean>
+    <bean id="sqlQueryService" class="com.graduation.service.impl.SqlQueryService">
+        <property name="sqlQueryDao" ref="sqlQueryDao"></property>
+    </bean>
+</beans>

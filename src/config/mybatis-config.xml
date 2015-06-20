@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="logImpl" value="LOG4J"/>
+    </settings>
+    <typeAliases>
+        <typeAlias type="com.graduation.model.OmlElement" alias="OmlElement"/>
+        <typeAlias type="com.graduation.model.MydbElement" alias="MydbElement"/>
+        <typeAlias type="com.graduation.model.SpectrumElement" alias="spectrumElement"/>
+        <!-- <package name="com.xiaoquan.model" /> -->
+    </typeAliases>
+    <!-- <typeAliases> <package name="domain.blog"/> </typeAliases> -->
+    <!-- <mappers>
+        <mapper resource="co/graduation/mapper/user-mapper.xml" />
+        <mapper class="com.xiaoquan.dao.PeopleDao"/>
+    </mappers> -->
+</configuration>

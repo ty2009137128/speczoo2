@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.model.SpectroscopicElement">
+
+
+    <sql id="did">
+        where 1=1
+        <if test="planId != null">
+            and PLANID = #{planId}
+        </if>
+        <if test="objtype != null">
+            and objtype = #{objtype}
+        </if>
+        <if test="clz != null">
+            and class = #{clz}
+        </if>
+
+        <if test="mjd != null">
+            and mjd >= #{mjdMin} and mjd &lt;= #{mjdMax}
+        </if>
+        <if test="ra != null">
+            and ra >= #{raMin} and ra &lt;= #{raMax}
+        </if>
+        <if test="dec != null">
+            and fithas.dec >= #{decMin} and fithas.dec &lt;= #{decMax}
+        </if>
+        <if test="snu != null">
+            and sn_u >= #{snuMin} and sn_u &lt;= #{snuMax}
+        </if>
+        <if test="sng!=null">
+            and sn_g >= #{sngMin} and sn_g &lt;= #{sngMax}
+        </if>
+        <if test="snr != null">
+            and sn_r >= #{snrMin} and sn_r &lt;= #{snrMax}
+        </if>
+        <if test="sni != null">
+            and sn_i >= #{sniMin} and sn_i &lt;= #{sniMax}
+        </if>
+        <if test="snz != null">
+            and sn_z >= #{snzMin} and sn_z &lt;= #{snzMax}
+        </if>
+        <if test="z != null">
+            and z >= #{zMin} and z &lt;= #{zMax}
+        </if>
+    </sql>
+
+    <sql id="didOr">
+        where 1>100
+        <if test="planId != null">
+            or PLANID = #{planId}
+        </if>
+        <if test="objtype != null">
+            or objtype = #{objtype}
+        </if>
+        <if test="clz != null">
+            or class = #{clz}
+        </if>
+
+        <if test="mjd != null">
+            or (mjd >= #{mjdMin} and mjd &lt;= #{mjdMax})
+        </if>
+        <if test="ra != null">
+            or (ra >= #{raMin} and ra &lt;= #{raMax})
+        </if>
+        <if test="dec != null">
+            or (fithas.dec >= #{decMin} and fithas.dec &lt;= #{decMax})
+        </if>
+        <if test="snu != null">
+            or (sn_u >= #{snuMin} and sn_u &lt;= #{snuMax})
+        </if>
+        <if test="sng!=null">
+            or (sn_g >= #{sngMin} and sn_g &lt;= #{sngMax})
+        </if>
+        <if test="snr != null">
+            or (sn_r >= #{snrMin} and sn_r &lt;= #{snrMax})
+        </if>
+        <if test="sni != null">
+            or (sn_i >= #{sniMin} and sn_i &lt;= #{sniMax})
+        </if>
+        <if test="snz != null">
+            or (sn_z >= #{snzMin} and sn_z &lt;= #{snzMax})
+        </if>
+        <if test="z != null">
+            or (z >= #{zMin} and z &lt;= #{zMax})
+        </if>
+    </sql>
+
+    <select id="selectList" resultType="java.util.LinkedHashMap" parameterType="java.util.HashMap">
+        select
+        record_Id as recordId,
+        PLANID as planId,
+        mjd as mjd,
+        round(ra,6) as ra,
+        round(fithas.`DEC`,6) as 'dec',
+        objtype as objtype,
+        sn_u as snu,
+        sn_g as sng,
+        sn_r as snr,
+        sn_i as sni,
+        sn_z as snz,
+        class as clz,
+        z as z,
+        substr(path,13) as path
+        from ${tableName}
+        <include refid="did"/>
+        order by record_Id asc
+
+    </select>
+
+    <select id="selectListOr" resultType="java.util.LinkedHashMap" parameterType="java.util.HashMap">
+        select record_Id as recordId,
+        PLANID as planId,
+        mjd as mjd,
+        ra as ra,
+        fithas.`DEC` as 'dec',
+        objtype as objtype,
+        sn_u as snu,
+        sn_g as sng,
+        sn_r as snr,
+        sn_i as sni,
+        sn_z as snz,
+        class as clz,
+        z as z
+        from ${tableName}
+        <include refid="didOr"/>
+        order by record_Id asc
+
+    </select>
+
+    <select id="countOr" resultType="long" parameterType="java.util.HashMap">
+        select count(*) from ${tableName}
+        <include refid="didOr"/>
+    </select>
+
+
+    <select id="count" resultType="long" parameterType="java.util.HashMap">
+        select count(*) from ${tableName}
+        <include refid="did"/>
+    </select>
+
+    <select id="findTabelData" parameterType="java.util.Map" resultType="java.util.LinkedHashMap">
+        select * from ${tableName}
+        <include refid="did"/>
+        order by record_Id asc
+    </select>
+    <select id="findTableDataCount" resultType="long"  parameterType="java.util.HashMap">
+        select count(*) from  ${tableName}
+        <include refid="did"/>
+    </select>
+
+    <select id="findTabelDataOr" parameterType="java.util.Map" resultType="java.util.LinkedHashMap">
+        select * from ${tableName}
+        <include refid="didOr"/>
+        order by record_Id asc
+    </select>
+    <select id="findTableDataCountOr" resultType="long"  parameterType="java.util.HashMap">
+        select count(*) from  ${tableName}
+        <include refid="didOr"/>
+    </select>
+
+</mapper>
+

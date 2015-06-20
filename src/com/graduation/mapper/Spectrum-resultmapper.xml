@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.model.SpectrumElement">
+
+    <update id="dropTable" parameterType="java.util.Map">
+		drop table if exists ${tableName}
+	</update>
+
+    <update id="createTable" parameterType="java.util.Map">
+		${createTableSql}
+	</update>
+
+    <insert id="insertBach" parameterType="java.util.Map">
+        insert into ${tableName}
+        values
+        <foreach item="item" index="index" collection="sqls" separator=",">
+            ${item}
+        </foreach>
+    </insert>
+<!-- insertSpectrum -->
+    <insert id="insertSpectrum" parameterType="SpectrumElement">
+        <selectKey keyProperty="id" resultType="int" order="BEFORE">
+            select max(id)+1 from t_red_shift
+        </selectKey>
+        insert into t_red_shift(id,user_name,fits_name,template_name,red_shift,note,insert_time,update_time)
+        values(#{id},#{userName},#{fitsName},#{templateName},#{redShift},#{note},#{insertTime,jdbcType=TIMESTAMP},#{updateTime,jdbcType=TIMESTAMP})
+    </insert>
+
+    <select id="getTableNames" resultType="string" parameterType="java.util.Map">
+        select tableName from mydb_user
+        where 1=1
+        
+        <if test="uid != null">
+        	and u_id =#{uid} 
+        </if>
+        <if test="tid != null">
+        	and id=#{tid}
+        </if>
+        
+    </select>
+
+    <select id="getSpectrumElement" parameterType="java.util.Map" resultType="com.graduation.model.SpectrumElement">
+		select id,tableName,rowNum,u_id as uid ,isPublic ,updateDate ,username from mydb_user
+		where tableName=#{tableName}
+	</select>
+	
+
+    <update id="deleteTableByNames" parameterType="java.util.Map">
+        drop table if exists
+        <foreach collection="tableNames" index="index" item="item" separator=",">
+            ${item}
+        </foreach>
+    </update>
+
+    <delete id="deleteSpectrumElementByTableName" parameterType="java.util.Map">
+        delete from mydb_user
+        where tableName in
+        <foreach item="item" index="index" collection="tableNames"
+                 open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </delete>
+
+    <select id="selectList" parameterType="java.util.Map" resultType="SpectrumElement">
+		select id,tableName,rowNum,u_id ,isPublic as uid ,updateDate ,username from mydb_user
+	</select>
+
+    <select id="findTabelDataCount" parameterType="java.util.Map" resultType="long">
+		select count(*) from ${tableName}
+	</select>
+
+    <select id="findTabelData" parameterType="java.util.Map" resultType="java.util.LinkedHashMap">
+		select * from ${tableName} order  by record_Id asc
+	</select>
+
+    <select id="getSpectrumElementByUId" parameterType="java.util.Map" resultType="SpectrumElement">
+        select id,tableName,rowNum,u_id as uid ,isPublic ,updateDate ,username from mydb_user where 1=1 
+        <if test="uid != null">
+            and u_id=#{uid}
+        </if>
+        <if test="isPublic != null">
+        	or isPublic=#{isPublic}
+        </if>
+    </select>
+    <select id="getTableNameKeword" parameterType="java.util.Map" resultType="string">
+        <bind name="keyword" value="'%' + keyword + '%'" />
+        select tableName from mydb_user
+        where u_id = #{uid} or isPublic=#{isPublic}
+        <if test="keyword != null">
+            and tableName like #{keyword}
+        </if>
+
+    </select>
+    
+    <select id="getSpectrumElementByUidAndTableName" parameterType="java.util.Map" resultType="com.graduation.model.SpectrumElement">
+    	select id,tableName,rowNum,u_id as uid ,isPublic ,updateDate ,username from mydb_user
+		where tableName=#{tableName} and u_id=#{uid}
+    </select>
+    
+    <update id="updateTableStatus" parameterType="com.graduation.model.SpectrumElement">
+    	update mydb_user set isPublic=#{isPublic} where tableName=#{tableName} and u_id=#{uid}
+    </update>
+</mapper>
+

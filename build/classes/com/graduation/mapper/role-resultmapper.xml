@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.graduation.model.Role">
+
+    <select id="selectList" parameterType="java.util.Map" resultType="com.graduation.model.Role">
+        select * from t_role
+    </select>
+
+    <select id="count" parameterType="java.util.Map" resultType="long">
+        select count(*) from t_role
+    </select>
+
+    <insert id="insert" parameterType="com.graduation.model.Role">
+        insert into t_role(`name`, `dec`) values (#{name}, #{dec})
+    </insert>
+
+    <select id="getRoleById" parameterType="java.util.Map" resultType="com.graduation.model.Role">
+        select * from t_role where id = #{id}
+    </select>
+
+    <update id="update" parameterType="com.graduation.model.Role">
+        update t_role set `name` = #{name}, `dec` = #{dec} where id = #{id}
+    </update>
+
+    <delete id="deleteById" parameterType="java.util.Map">
+        delete from t_role where id = #{id}
+    </delete>
+
+
+</mapper>
+
